@@ -18,17 +18,14 @@ pipeline{
 
                     }
         }
-        stage('push image dockerhub'){
-            steps{
-                script{
-                withCredentials([usernameColonPassword(credentialsId: '2de180c4-5b92-4f7e-a2c5-c7c27d035e55', variable: 'hello variable')]) {
-                    sh 'docker login -u $chiehmin -p $hello variable'
+        stage('push image dockerhub') {
+            steps {
+                script {
+                    withCredentials([usernameColonPassword(credentialsId: '2de180c4-5b92-4f7e-a2c5-c7c27d035e55', variable: 'hello_variable')]) {
+                        sh "docker login -u $chiehmin -p \"$hello_variable\""
+                    }
+                    sh 'docker push chiehmin/hello-spring'
                 }
-                sh 'docker push chiehmin/hello-spring'
-
-
-                }
-
             }
         }
 
