@@ -10,6 +10,14 @@ pipeline{
                 sh 'mvn clean install'
             }
         }
+        stage('build docker image'){
+                    steps{
+                        script{
+                            sh 'docker build -t chiehmin/hello'
+                        }
+
+                    }
+        }
 
 
 
