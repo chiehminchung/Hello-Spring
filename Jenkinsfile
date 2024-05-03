@@ -22,7 +22,7 @@ pipeline{
             steps {
                 script {
                     withCredentials([string(credentialsId: 'hubpwd', variable: 'hub')]) {
-                        sh 'docker login -u $chiehmin -p ${hub}'
+                        sh 'docker login -u chiehmin -p ${hub}'
                     }
                     sh 'docker push chiehmin/hello-spring'
                 }
