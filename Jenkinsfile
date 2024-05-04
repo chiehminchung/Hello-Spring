@@ -31,7 +31,7 @@ pipeline{
         stage('push image dockerhub') {
             steps {
                 script {
-                    kubernetesDeploy configs: '', kubeConfig: [path: ''], kubeconfigId: 'k8sconfig2', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+                    kubernetesDeploy (configs: 'deploymentservice.yaml', kubeconfigId: 'k8sconfig2')
                 }
             }
         }
