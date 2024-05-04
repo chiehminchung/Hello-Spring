@@ -28,7 +28,7 @@ pipeline{
                 }
             }
         }
-        stage('push image dockerhub') {
+        stage('push to k8s') {
             steps {
                 script {
                     kubernetesDeploy (configs: 'deploymentservice.yaml', kubeconfigId: 'k8sconfig2')
